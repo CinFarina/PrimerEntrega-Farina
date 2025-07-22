@@ -14,7 +14,7 @@ router.use(async (req, res, next) => {
     }
 });
 
-// GET /api/products/
+
 router.get('/', async (req, res) => {
     try {
         const products = await productManager.getProducts();
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-// GET /api/products/:pid
+
 router.get('/:pid', async (req, res) => {
     try {
         const product = await productManager.getProductById(req.params.pid);
@@ -34,7 +34,7 @@ router.get('/:pid', async (req, res) => {
     }
 });
 
-// POST /api/products/
+
 router.post('/', async (req, res) => {
     try {
         const newProduct = await productManager.addProduct(req.body);
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// PUT /api/products/:pid
+
 router.put('/:pid', async (req, res) => {
     try {
         const updatedProduct = await productManager.updateProduct(req.params.pid, req.body);
@@ -58,7 +58,7 @@ router.put('/:pid', async (req, res) => {
     }
 });
 
-// DELETE /api/products/:pid
+
 router.delete('/:pid', async (req, res) => {
     try {
         const message = await productManager.deleteProduct(req.params.pid);

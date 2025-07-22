@@ -17,7 +17,6 @@ router.use(async (req, res, next) => {
     }
 });
 
-// POST /api/carts/
 router.post('/', async (req, res) => {
     try {
         const newCart = await cartManager.createCart();
@@ -27,17 +26,16 @@ router.post('/', async (req, res) => {
     }
 });
 
-// GET /api/carts/:cid
+
 router.get('/:cid', async (req, res) => {
     try {
         const cart = await cartManager.getCartById(req.params.cid);
-        res.json({ status: "success", payload: cart.products }); // Retorna solo los productos del carrito
+        res.json({ status: "success", payload: cart.products }); 
     } catch (error) {
         res.status(404).send({ status: "error", message: error.message });
     }
 });
 
-// POST /api/carts/:cid/product/:pid
 router.post('/:cid/product/:pid', async (req, res) => {
     try {
         const { cid, pid } = req.params;
